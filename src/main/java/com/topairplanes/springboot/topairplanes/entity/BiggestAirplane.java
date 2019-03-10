@@ -3,7 +3,7 @@ package com.topairplanes.springboot.topairplanes.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="biggest_airplane")
+@Table(name="biggest_airplanes")
 public class BiggestAirplane {
 
     @Id
@@ -26,8 +26,8 @@ public class BiggestAirplane {
     @Column(name="hull_length")
     private double hullLength;
 
-    @Column(name="passanger")
-    private boolean passanger;
+    @Column(name="passenger")
+    private boolean passenger;
 
     @Column(name="military")
     private boolean military;
@@ -35,13 +35,16 @@ public class BiggestAirplane {
     @Column(name="carrying")
     private boolean carrying;
 
-    public BiggestAirplane(String name, String producer, String country, double wingspan, double hullLength, boolean passanger, boolean military, boolean carrying) {
+    public BiggestAirplane() {
+    }
+
+    public BiggestAirplane(String name, String producer, String country, double wingspan, double hullLength, boolean passenger, boolean military, boolean carrying) {
         this.name = name;
         this.producer = producer;
         this.country = country;
         this.wingspan = wingspan;
         this.hullLength = hullLength;
-        this.passanger = passanger;
+        this.passenger = passenger;
         this.military = military;
         this.carrying = carrying;
     }
@@ -94,12 +97,12 @@ public class BiggestAirplane {
         this.hullLength = hullLength;
     }
 
-    public boolean isPassanger() {
-        return passanger;
+    public boolean isPassenger() {
+        return passenger;
     }
 
-    public void setPassanger(boolean passanger) {
-        this.passanger = passanger;
+    public void setPassenger(boolean passenger) {
+        this.passenger = passenger;
     }
 
     public boolean isMilitary() {
@@ -127,7 +130,7 @@ public class BiggestAirplane {
                 ", country='" + country + '\'' +
                 ", wingspan=" + wingspan +
                 ", hullLength=" + hullLength +
-                ", passanger=" + passanger +
+                ", passenger=" + passenger +
                 ", military=" + military +
                 ", carrying=" + carrying +
                 '}';
