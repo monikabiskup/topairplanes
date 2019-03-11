@@ -1,26 +1,23 @@
 package com.topairplanes.springboot.topairplanes.service;
 
-import com.topairplanes.springboot.topairplanes.dao.BiggestAircraftDAO;
+import com.topairplanes.springboot.topairplanes.dao.BiggestAircraftRepository;
 import com.topairplanes.springboot.topairplanes.entity.BiggestAircraft;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class BiggestAircraftServiceImpl implements BiggestAircraftService {
 
-    private BiggestAircraftDAO biggestAircraftDAO;
+    private BiggestAircraftRepository biggestAircraftRepository;
 
     @Autowired
-    public BiggestAircraftServiceImpl(BiggestAircraftDAO theBiggestAircraftDAO) {
-        this.biggestAircraftDAO = theBiggestAircraftDAO;
+    public BiggestAircraftServiceImpl(BiggestAircraftRepository theBiggestAircraftRepository) {
+        this.biggestAircraftRepository = theBiggestAircraftRepository;
     }
 
     @Override
-    @Transactional
     public List<BiggestAircraft> findAll() {
-        return biggestAircraftDAO.findAll();
+        return biggestAircraftRepository.findAll();
     }
 }
