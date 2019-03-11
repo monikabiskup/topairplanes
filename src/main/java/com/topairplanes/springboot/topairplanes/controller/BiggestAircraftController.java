@@ -3,6 +3,8 @@ package com.topairplanes.springboot.topairplanes.controller;
 import com.topairplanes.springboot.topairplanes.entity.BiggestAircraft;
 import com.topairplanes.springboot.topairplanes.entity.FastestAircraft;
 import com.topairplanes.springboot.topairplanes.service.BiggestAircraftService;
+import com.topairplanes.springboot.topairplanes.service.FastestAircraftService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ public class BiggestAircraftController {
 
     private BiggestAircraftService biggestAircraftService;
 
+    @Autowired
     public BiggestAircraftController(BiggestAircraftService theBiggestAircraftService) {
         biggestAircraftService = theBiggestAircraftService;
     }
