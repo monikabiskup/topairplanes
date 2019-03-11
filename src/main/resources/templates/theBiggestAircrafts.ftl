@@ -3,7 +3,7 @@
     <#include "navbar.ftl">
     <div class="container-fluid" style="margin-top: 25px">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-10 offset-md-1">
                 <div class="panel panel-default">
                     <table class="table">
                         <thead class="thead-light">
@@ -14,6 +14,7 @@
                             <th scope="col">Country</th>
                             <th scope="col">Wingspan</th>
                             <th scope="col">Hull length</th>
+                            <th scope="col">Main function</th>
                         </tr>
                         </thead>
                         <#if biggest_aircrafts?size != 0>
@@ -26,6 +27,13 @@
                                 <td>${b.getCountry()}</td>
                                 <td>${b.getWingspan()}</td>
                                 <td>${b.getHullLength()}</td>
+                                <#if b.isPassenger()>
+                                <td>Passanger</td>
+                                <#elseif b.isMilitary()>
+                                <td>Military</td>
+                                <#elseif b.isCarrying()>
+                                <td>Carrying</td>
+                                </#if>
                             </tr>
                                 </#list>
                             </tbody>
